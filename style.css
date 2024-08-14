@@ -117,6 +117,7 @@ h1 {
   border-radius: 5px;
   font-size: 1rem;
   font-weight: 500;
+  transition: var(--deep-acquarine) 0.3s ease;
 }
 
 .btn:hover {
