@@ -41,22 +41,111 @@ textarea,
 select {
   font: inherit;
 }
-/*
-  7. Avoid text overflows
-*/
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
+
+:root {
+  --dark-cyan: hsl(158, 36%, 37%);
+  --cream: hsl(30, 38%, 92%);
+  --very-dark-blue: hsl(212, 21%, 14%);
+  --deep-acquarine: hsl(158, 42%, 18%);
+  --saurus: hsl(228, 12%, 48%);
+  --white: hsl(0, 0%, 100%);
+
+  --font-family-regular: 'Montserrat', sans-serif;
+  --font-family-stylish: 'Fraunces', serif;
 }
-/*
-  8. Create a root stacking context
-*/
-#root,
-#__next {
-  isolation: isolate;
+
+body {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  background-color: var(--cream);
+  color: var(--saurus);
+  margin: 1rem;
+  font-size: 0.9125rem;
+  font-family: var(--font-family-regular);
+}
+
+h1 {
+  font-family: var(--font-family-stylish);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--very-dark-blue);
+}
+
+.container {
+  background-color: var(--white);
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.content {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  font-weight: 500;
+}
+
+.product-category {
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  font-weight: 400;
+}
+
+.product-price {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.discount-price {
+  font-family: var(--font-family-stylish);
+  font-weight: 700;
+  color: var(--dark-cyan);
+  font-size: 2rem;
+}
+
+.original-price {
+  text-decoration: line-through;
+}
+
+.product-btn {
+}
+
+.btn {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: var(--dark-cyan);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:is(:hover, :focus) {
+  background-color: var(--deep-acquarine);
+}
+
+.btn[data-icon='shopping-cart']::before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 16px;
+  background-image: url('./images/icon-cart.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 1rem;
+  vertical-align: middle;
+}
+
+@media (min-width: 600px) {
+  .card {
+    display: flex;
+    max-width: 600px;
+    height: 450px;
+  }
+
+  .content {
+    width: 80%;
+  }
 }
